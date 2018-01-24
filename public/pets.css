@@ -1,0 +1,14 @@
+table, td, th {
+  border: 2px solid black;
+  border-collapse: collapse;
+  padding: 5px;
+}
+
+th {
+  background-color: lightgray;
+  text-align: center;
+}
+
+.pet-name:hover {
+  color: deeppink;
+}

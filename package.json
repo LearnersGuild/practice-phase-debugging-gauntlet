@@ -1,0 +1,31 @@
+{
+  "name": "PetTracker",
+  "version": "1.0.0",
+  "description": "An app to track pet ownership in pop culture.",
+  "engines": {
+    "node": "6.12.x"
+  },
+  "scripts": {
+    "db:create": "createdb debugger-gauntlet-pets",
+    "db:drop": "dropdb --if-exists debugger-gauntlet-pets",
+    "db:schema": "psql -d debugger-gauntlet-pets < src/data/schema.sql",
+    "db:seed": "psql -d debugger-gauntlet-pets < src/data/seed.sql",
+    "setup": "npm run db:drop && npm run db:create && npm run db:schema && npm run db:seed && npm install",
+    "start": "nodemon src/index.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "body-parser": "^1.18.2",
+    "dotenv": "^4.0.0",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "pg-promise": "^7.3.2"
+  },
+  "devDependencies": {
+    "eslint": "^4.4.1",
+    "eslint-config-airbnb-base": "^11.3.1",
+    "eslint-plugin-import": "^2.7.0",
+    "nodemon": "^1.12.1"
+  }
+}

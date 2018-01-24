@@ -1,0 +1,12 @@
+<% include ../partials/header %>
+<h1>PetTracker</h1>
+
+<h2>Owners</h2>
+
+<ul class="owner-list">
+  <% owners.forEach(function(owner) { %>
+  <li><%= owner.name %>"></li>
+  <% }) %>
+</ul>
+
+<% include ../partials/footer %>
