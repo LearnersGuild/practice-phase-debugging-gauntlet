@@ -1,7 +1,6 @@
 const db = require('../db')
 
 function getOwnersByPetId(petId) {
-  console.log('we are in owners db');
   const query = `
   SELECT name
   FROM owners AS o
