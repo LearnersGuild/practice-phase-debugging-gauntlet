@@ -11,7 +11,8 @@ $(document).ready(() => {
     const petId = $(this).data('id')
 
     fetch(`/pets/${petId}/owners`)
-      .then(owners => {
+      .then(owners => owners.json())
+      .then((owners) => {
         ownersList.empty()
         owners.forEach(owner => {
           ownersList.append(`<li>${owner.name}</li>`)

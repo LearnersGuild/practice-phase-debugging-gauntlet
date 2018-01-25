@@ -1,5 +1,5 @@
 const express = require('express')
-const { getPets, getOwnersById } = require('../actions')
+const { getPets, getOwnersByPetId } = require('../actions')
 
 const router = express.Router()
 
@@ -10,10 +10,11 @@ router.get('/', (req, res, next) => {
 })
 
 router.get('/:petId/owners', (req, res, next) => {
-  const { petId } = req.query
-
-  getOwnersById()
-    .then(owners => res.json(owners))
+  const { petId } = req.params
+  getOwnersByPetId(petId)
+    .then(owners => {
+      return res.json(owners)
+    })
     .catch(next)
 })
 

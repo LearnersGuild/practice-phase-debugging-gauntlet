@@ -1,12 +1,15 @@
 const db = require('../db')
 
-module.exports = function getOwnersByPetId(petId) {
+function getOwnersByPetId(petId) {
+  console.log('we are in owners db');
   const query = `
   SELECT name
   FROM owners AS o
   JOIN petowners AS po
-  ON o.id = po.owner_id
+  ON o.owner_id = po.owner_id
   WHERE po.pet_id = $1
   `
-  db.query(query, [petId])
+  return db.query(query, [petId])
 }
+
+module.exports = getOwnersByPetId
