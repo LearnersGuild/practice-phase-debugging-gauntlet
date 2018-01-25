@@ -1,12 +1,11 @@
 // hide the pet
 $(document).ready(() => {
-
-  const petOwnerDiv = $('.pet-owners')
+  const petOwnerDiv = $('#pet-owners')
   const petNameSpan = $('#owners-pet-name')
   const ownersList = $('#owners-list')
   petOwnerDiv.hide()
 
-  $('.pet').on('click', () => {
+  $('.pet-name').on('click', function () {
     petOwnerDiv.show()
     petNameSpan.html($(this).html())
     const petId = $(this).data('id')
