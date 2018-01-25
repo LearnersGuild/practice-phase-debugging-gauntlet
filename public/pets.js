@@ -1,18 +1,18 @@
 // hide the pet
 $(document).ready(() => {
-
-  const petOwnerDiv = $('.pet-owners')
+  const petOwnerDiv = $('#pet-owners')
   const petNameSpan = $('#owners-pet-name')
   const ownersList = $('#owners-list')
   petOwnerDiv.hide()
 
-  $('.pet').on('click', () => {
+  $('.pet-name').on('click', function () {
     petOwnerDiv.show()
     petNameSpan.html($(this).html())
     const petId = $(this).data('id')
 
     fetch(`/pets/${petId}/owners`)
-      .then(owners => {
+      .then(owners => owners.json())
+      .then((owners) => {
         ownersList.empty()
         owners.forEach(owner => {
           ownersList.append(`<li>${owner.name}</li>`)
